@@ -10,10 +10,13 @@ st.title("Speaker Diarization Web App")
 # Hugging Face Token (Replace with your actual token)
 HUGGINGFACE_ACCESS_TOKEN = "HUGGINGFACE_ACCESS_TOKEN_GOES_HERE"
 
+# Set Hugging Face access token
+os.environ["HF_HOME"] = HUGGINGFACE_ACCESS_TOKEN
+
 # Load PyAnnote pipeline
 @st.cache_resource
 def load_pipeline():
-    pipeline = Pipeline.from_pretrained("pyannote/speaker-diarization-3.1", token=HUGGINGFACE_ACCESS_TOKEN)
+    pipeline = Pipeline.from_pretrained("pyannote/speaker-diarization-3.1")
     pipeline.to(torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu"))
     return pipeline
 
