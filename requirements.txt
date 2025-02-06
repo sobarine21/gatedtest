@@ -1,9 +1,10 @@
-streamlit
-torch 
+torch==1.13.1
 torchvision
 torchaudio
-pyannote.audio
 numpy 
 scipy 
 librosa 
 soundfile
+torch==1.13.1  # or another compatible version
+pyannote.audio==2.0  # Ensure you're using a compatible version of pyannote
+streamlit==1.10  # Or another compatible version
